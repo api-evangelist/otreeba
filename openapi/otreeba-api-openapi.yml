@@ -1,13 +1,12 @@
 openapi: 3.0.1
 info:
-  title: Otreeba Open Cannabis API
-  description: >-
-    This is an open, canonical database of cannabis seed companies, strains,
-    brands, products, retailers, and studies from
-    [Otreeba](https://otreeba.com). It is written on the OpenAPI Specification
-    AKA Swagger. You can find out more about the Open API Initiative at
-    [https://www.openapis.org/](https://www.openapis.org), or more info on
-    Swagger at [http://swagger.io/](http://swagger.io/).
+  title: Otreeba API
+  description: |-
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+    "abierto" which means "open." We offer standardized cannabis data and
+    normalization for cannabis seed companies, strains, brands, products,
+    batches, retailers, and studies through a REST API.
   termsOfService: https://otreeba.com/terms/
   contact:
     email: api@otreeba.com
