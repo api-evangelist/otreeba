@@ -26,7 +26,6 @@ apis:
       - url: properties/otreeba-api-openapi.yml
         type: OpenAPI
     description: |-
-
       Open Cannabis Data for Your Technology Otreeba comes from the word
       "abierto" which means "open." We offer standardized cannabis data and
       normalization for cannabis seed companies, strains, brands, products,
@@ -38,6 +37,7 @@ tags:
   - Clothing
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
 common:
   - url: https://otreeba.com/terms/
     type: Terms of Service
@@ -57,6 +57,7 @@ common:
     type: Support
 created: '2024-11-05'
 modified: '2025-01-02'
+position: Consuming
 description: >-
   Otreeba is a sustainable hemp clothing brand that focuses on creating stylish
   and eco-friendly apparel for men and women. Their mission is to promote a more
@@ -72,5 +73,3 @@ maintainers:
     email: info@apievangelist.com
     X-twitter: apievangelist
 specificationVersion: '0.18'
-position: Consuming
-access: 3rd-Party
