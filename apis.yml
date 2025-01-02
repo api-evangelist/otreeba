@@ -7,7 +7,7 @@ apis:
       - API
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: http://api.example.com
-    humanURL: https://api.otreeba.com/swagger/
+    humanURL: https://otreeba.com/
     properties:
       - url: https://api.otreeba.com/swagger/
         type: Documentation
