@@ -1,0 +1,1772 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Open Cannabis API
+  description: >-
+    This is an open, canonical database of cannabis seed companies, strains,
+    brands, products, retailers, and studies from
+    [Otreeba](https://otreeba.com). It is written on the OpenAPI Specification
+    AKA Swagger. You can find out more about the Open API Initiative at
+    [https://www.openapis.org/](https://www.openapis.org), or more info on
+    Swagger at [http://swagger.io/](http://swagger.io/).
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+servers:
+  - url: https://api.otreeba.com/v1
+security:
+  - api_key: []
+tags:
+  - name: Seed Companies
+    description: Companies that create cannabis seeds.
+  - name: Strains
+    description: Individual varieities of cannabis.
+  - name: Brands
+    description: >-
+      Companies that create or distribute various forms of flowers, extracts,
+      edibles, or products.
+  - name: Flowers
+    description: Finished cannabis seeds, clones, flowers, or shake.
+  - name: Extracts
+    description: Extracted or concentrated forms of cannabis.
+  - name: Edibles
+    description: Consumable products infused with cannabis extracts or flowers.
+  - name: Products
+    description: >-
+      Products not meant for consumption infused with cannabis extracts or
+      flowers.
+  - name: Studies
+    description: Studies on cannabis for different medical conditions.
+paths:
+  /seed-companies:
+    get:
+      tags:
+        - Seed Companies
+      summary: Get a list of all current seed companies.
+      description: Returns a paginated list of seed companies.
+      operationId: getSeedCompanies
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Seed Comapnies.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Seed company not found.
+          content: {}
+  /seed-companies/{ocpc}:
+    get:
+      tags:
+        - Seed Companies
+      summary: Find seed company by Open Cannabis Product Code (OCPC).
+      description: Returns a single seed company.
+      operationId: getSeedCompanyByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the seed company to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeedCompany'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Seed company not found.
+          content: {}
+  /seed-companies/{ocpc}/strains:
+    get:
+      tags:
+        - Seed Companies
+      summary: Find strains for a seed company by Open Cannabis Product Code (OCPC).
+      description: Returns a paginated list of strains for a single seed company.
+      operationId: getSeedCompanyStrainsByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the seed company to return strains for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: >-
+                      Gets the Strains for a Seed Company listing from a given
+                      OCPC.
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+                    description: >-
+                      Gets the Strains for a Seed Company listing from a given
+                      OCPC.
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Seed company not found.
+          content: {}
+  /edibles:
+    get:
+      tags:
+        - Edibles
+      summary: Get a list of all current edibles.
+      description: Returns a paginated list of edibles.
+      operationId: getEdibles
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Edibles.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Edible not found.
+          content: {}
+  /edibles/{ocpc}:
+    get:
+      tags:
+        - Edibles
+      summary: Find edible by Open Cannabis Product Code (OCPC).
+      description: Returns a single edible.
+      operationId: getEdibleByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the edible to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edible'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Edible not found.
+          content: {}
+  /extracts:
+    get:
+      tags:
+        - Extracts
+      summary: Get a list of all current extracts.
+      description: Returns a paginated list of extracts.
+      operationId: getExtracts
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Extracts.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Extract not found.
+          content: {}
+  /extracts/{ocpc}:
+    get:
+      tags:
+        - Extracts
+      summary: Find extract by Open Cannabis Product Code (OCPC).
+      description: Returns a single extract.
+      operationId: getExtractByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the extract to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Extract'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Extract not found.
+          content: {}
+  /flowers:
+    get:
+      tags:
+        - Flowers
+      summary: Get a list of all current flowers.
+      description: Returns a paginated list of flowers.
+      operationId: getFlowers
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Flowers.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Flower not found.
+          content: {}
+  /flowers/{ocpc}:
+    get:
+      tags:
+        - Flowers
+      summary: Find flower by Open Cannabis Product Code (OCPC).
+      description: Returns a single flower.
+      operationId: getFlowerByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the flower to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flower'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Flower not found.
+          content: {}
+  /brands:
+    get:
+      tags:
+        - Brands
+      summary: Get a list of all current brands.
+      description: Returns a paginated list of brands.
+      operationId: getBrands
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Brands.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}:
+    get:
+      tags:
+        - Brands
+      summary: Find brand by Open Cannabis Product Code (OCPC).
+      description: Returns a single brand.
+      operationId: getBrandByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the brand to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/flowers:
+    get:
+      tags:
+        - Brands
+      summary: Get a list of all current flowers for the given brand.
+      description: Returns a paginated list of flowers.
+      operationId: getBrandFlowers
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the brand to list flowers for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Flowers for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/extracts:
+    get:
+      tags:
+        - Brands
+      summary: Get a list of all current extracts for the given brand.
+      description: Returns a paginated list of extracts.
+      operationId: getBrandExtracts
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the brand to list extracts for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Extracts for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/edibles:
+    get:
+      tags:
+        - Brands
+      summary: Get a list of all current edibles for the given brand.
+      description: Returns a paginated list of edibles.
+      operationId: getBrandEdibles
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the brand to list edibles for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Edibles for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/products:
+    get:
+      tags:
+        - Brands
+      summary: Get a list of all current products for the given brand.
+      description: Returns a paginated list of products.
+      operationId: getBrandProducts
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the brand to list products for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Products for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /products:
+    get:
+      tags:
+        - Products
+      summary: Get a list of all current products.
+      description: Returns a paginated list of products.
+      operationId: getProducts
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Products.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Product not found.
+          content: {}
+  /products/{ocpc}:
+    get:
+      tags:
+        - Products
+      summary: Find product by Open Cannabis Product Code (OCPC).
+      description: Returns a single product.
+      operationId: getProductByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the product to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Product not found.
+          content: {}
+  /strains:
+    get:
+      tags:
+        - Strains
+      summary: Get a list of all current strains.
+      description: Returns a paginated list of strains.
+      operationId: getStrains
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Strains.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Strain not found.
+          content: {}
+  /strains/{ocpc}:
+    get:
+      tags:
+        - Strains
+      summary: Find strain by Open Cannabis Product Code (OCPC).
+      description: Returns a single strain.
+      operationId: getStrainByOcpc
+      parameters:
+        - name: ocpc
+          in: path
+          description: OCPC of the strain to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Strain'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Strain not found.
+          content: {}
+  /studies:
+    get:
+      tags:
+        - Studies
+      summary: Get a list of all current studies.
+      description: Returns a paginated list of studies.
+      operationId: getStudies
+      parameters:
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-createdAt'
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Studies.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid arguments supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Study not found.
+          content: {}
+  /studies/conditions:
+    get:
+      tags:
+        - Studies
+      summary: Get a list of all current conditions for studies.
+      description: Returns a list of all current conditions for studies.
+      operationId: getStudiesConditions
+      parameters:
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: name
+            enum:
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+              - '-name'
+              - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Conditions for Studies.
+        '400':
+          description: Invalid arguments supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+  /studies/{identifierType}/{identifier}:
+    get:
+      tags:
+        - Studies
+      summary: Find study by DOI, PubMed ID, or slug.
+      description: Returns a single study.
+      operationId: getStudyByIdentifier
+      parameters:
+        - name: identifierType
+          in: path
+          description: Type of identifier to for the study to return.
+          required: true
+          schema:
+            type: string
+            default: doi
+            enum:
+              - doi
+              - pubMedId
+              - slug
+        - name: identifier
+          in: path
+          description: Identifier for the study to return.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Study'
+        '400':
+          description: Invalid argument supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Study not found.
+          content: {}
+  /studies/conditions/{conditionSlug}:
+    get:
+      tags:
+        - Studies
+      summary: Get a list of all current studies for a given condition.
+      description: Returns a paginated list of studies.
+      operationId: getStudiesByCondition
+      parameters:
+        - name: conditionSlug
+          in: path
+          description: Slug of the condition to return studies for.
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page to be returned.
+          schema:
+            type: integer
+        - name: count
+          in: query
+          description: The number of items to return. Default 10. Max 50.
+          schema:
+            type: integer
+            default: 10
+        - name: sort
+          in: query
+          description: How to sort the items.
+          schema:
+            type: string
+            default: '-year'
+            enum:
+              - '-year'
+              - year
+              - '-createdAt'
+              - createdAt
+              - '-updatedAt'
+              - updatedAt
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Studies for a given Condition.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid arguments supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Condition.
+          content: {}
+components:
+  schemas:
+    Error:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Brand:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the brand.
+          example: Kiva
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the brand.
+          example: 0000000000L6M7E0000000000
+        link:
+          type: string
+          description: URL for brand on Otreeba.
+          example: https://api.otreeba.com/v1/brands/0000000000L6M7E0000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/producer-reports/kiva/qr-code
+        url:
+          type: string
+          description: URL for brand on Cannabis Reports.
+          example: https://www.cannabisreports.com/producer-reports/kiva
+        image:
+          type: string
+          description: URL for logo for brand.
+          example: >-
+            https://www.cannabisreports.com/images/profile/8/full_8b44ce75bfba676790018d8a1d275d4d736883a9.jpg
+        flowers:
+          type: array
+          description: OCPCs of the flowers from this brand.
+          items:
+            type: string
+        extracts:
+          type: array
+          description: OCPCs of the extracts from this brand.
+          items:
+            type: string
+        edibles:
+          type: array
+          description: OCPCs of the edibles from this brand.
+          items:
+            type: string
+        products:
+          type: array
+          description: OCPCs of the products from this brand.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Brand
+    Condition:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the condition.
+          example: Fibromyalgia
+        slug:
+          type: string
+          description: Slug based on the condition name.
+          example: fibromyalgia
+        description:
+          type: string
+          description: Description of the condition.
+          example: >-
+            Fibromyalgia, an illness characterized by chronic pain combined with
+            some form of psychiatric diagnosis, still lacks an observable
+            underlying pathology. The disease picture of fibromyalgia usually
+            includes widespread chronic pains in muscles and connective tissue,
+            joint stiffness, general weakness, exhaustion, depression, anxiety,
+            and insomnia. Nearly 2 percent of the general population in the
+            United States suffers from fibromyalgia, the majority of them being
+            middle-aged females.
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Condition
+    Edible:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the edible.
+          example: Moxey's Mints - Ginger
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the edible.
+          example: 0000000000NJKLWH2HNZ00000
+        brand:
+          type: object
+          properties: {}
+          description: >-
+            Name and Open Cannabis Product Code of the brand that created this
+            edible.
+          example:
+            name: Mr. Moxey's Mints
+            ocpc: 0000000000NJKLW0000000000
+        type:
+          type: string
+          description: Type of edible.
+          example: Mint
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for this edible.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the edible.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/edible-reports/qr-code/mr-moxeys-mints/moxeys-mints-ginger
+        url:
+          type: string
+          description: URL for the edible on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/edible-reports/mr-moxeys-mints/moxeys-mints-ginger
+        image:
+          type: string
+          description: URL for the main photo of the edible.
+          example: >-
+            https://www.cannabisreports.com/images/edibles/b/full_bf53ef28bb19d97624cab43e12614b3affbf1a31.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for this edible.
+          example: >-
+            https://www.cannabisreports.com/lab-tests/b/bf53ef28bb19d97624cab43e12614b3affbf1a31.pdf
+        thc:
+          type: string
+          description: THC measurement for this edible.
+          example: 20mg
+        cbd:
+          type: string
+          description: CBD measurement for this edible.
+          example: 100mg
+        cannabis:
+          type: string
+          description: Cannabis measurement for this edible.
+          example: 0mg
+        hashOil:
+          type: string
+          description: Hash oil measurement for this edible.
+          example: 0mg
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Edible
+    Extract:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the extract.
+          example: Confidential Cheese - Wax
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the extract.
+          example: TTUYNUF3TP6DZTPWPG3200000
+        brand:
+          type: object
+          properties: {}
+          description: >-
+            Name and Open Cannabis Product Code of the brand that created these
+            extract.
+          example:
+            name: Kaizen Medicinal
+            ocpc: 00000000006DZTP0000000000
+        type:
+          type: string
+          description: Type of extract.
+          example: wax
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these extract.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the extract.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
+        url:
+          type: string
+          description: URL for the extract on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
+        image:
+          type: string
+          description: URL for the main photo of the extract.
+          example: >-
+            https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
+        labTest:
+          type: string
+          description: >-
+            URL for the PDF containing lab testing information for these
+            extract.
+          example: >-
+            https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
+        thc:
+          type: string
+          description: THC measurement for these extract.
+          example: 87.92%
+        cbd:
+          type: string
+          description: CBD measurement for these extract.
+          example: 0.22%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Extract
+    Flower:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the flowers.
+          example: Half Dome Haze - Flowers
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the flowers.
+          example: 9XVU7JDFUGLTE2ATJ7CD00000
+        brand:
+          type: object
+          properties: {}
+          description: >-
+            Name and Open Cannabis Product Code of the brand that created these
+            flowers.
+          example:
+            name: Advantage Healing
+            ocpc: 0000000000LTE2A0000000000
+        type:
+          type: string
+          description: Type of flowers.
+          example: flowers
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these flowers.
+          example:
+            name: Half Dome Haze
+            ocpc: 9XVU7JDFUG000000000000000
+        description:
+          type: string
+          description: Description of the flowers.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers/qr-code.svg
+        url:
+          type: string
+          description: URL for the flowers on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers
+        image:
+          type: string
+          description: URL for the main photo of the flowers.
+          example: >-
+            https://www.cannabisreports.com/images/flowers/c/full_c4b27703dedbccd4a9f4bb0ca89bf4520aa4aca0.jpg
+        labTest:
+          type: string
+          description: >-
+            URL for the PDF containing lab testing information for these
+            flowers.
+          example: >-
+            https://www.cannabisreports.com/lab-tests/c/c702502526ef743651e29f14ccfa84423fadfdf0.pdf
+        thc:
+          type: string
+          description: THC measurement for these flowers.
+          example: 27.50%
+        cbd:
+          type: string
+          description: CBD measurement for these flowers.
+          example: 0.05%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Flower
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: >-
+              https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: >-
+              https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
+    Product:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the product.
+          example: X-Pen
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the product.
+          example: 0000000000YPLU3Z2YUM00000
+        brand:
+          type: object
+          properties: {}
+          description: >-
+            Name and Open Cannabis Product Code of the brand that created this
+            product.
+          example:
+            name: Elixinol
+            ocpc: 0000000000YPLU30000000000
+        type:
+          type: string
+          description: Type of product.
+          example: Oil Applicator
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for this product.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the product.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/product-reports/qr-code/elixinol/x-pen.png
+        url:
+          type: string
+          description: URL for the product on Cannabis Reports.
+          example: https://www.cannabisreports.com/product-reports/elixinol/x-pen
+        image:
+          type: string
+          description: URL for the main photo of the product.
+          example: >-
+            https://www.cannabisreports.com/images/products/f/full_f592eb462df530c23a98d0fb6330fc895c8cfe18.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for this product.
+          example: >-
+            https://www.cannabisreports.com/lab-tests/1/140c73d2606fded84e6a14ca07aed77eb1e73827.pdf
+        thc:
+          type: string
+          description: THC measurement for this product.
+          example: 0mg
+        cbd:
+          type: string
+          description: CBD measurement for this product.
+          example: 1,000mg
+        cannabis:
+          type: string
+          description: Cannabis measurement for this product.
+          example: ''
+        hashOil:
+          type: string
+          description: Hash oil measurement for this product.
+          example: ''
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Product
+    SeedCompany:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the seed company.
+          example: Sensi Seeds
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the seed company.
+          example: VUJCJ00000000000000000000
+        description:
+          type: string
+          description: Description of the seed company.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg
+        url:
+          type: string
+          description: URL for seed company on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds
+        image:
+          type: string
+          description: URL for logo for seed company.
+          example: >-
+            https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: >-
+            Object of countries that this seed company has lineages from.
+            {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Canada: CA
+            Colombia: CO
+            Hungary: HU
+            India: IN
+        strains:
+          type: array
+          description: OCPCs of the strains from this seed company.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Seed Company
+    Strain:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the strain.
+          example: Jack Herer
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the strain.
+          example: VUJCJ4TYMG000000000000000
+        seedCompany:
+          type: object
+          properties: {}
+          description: >-
+            Name and Open Cannabis Product Code of the seed company that created
+            the strain.
+          example:
+            name: Sensi Seeds
+            ocpc: VUJCJ00000000000000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
+        url:
+          type: string
+          description: URL for strain on Cannabis Reports.
+          example: >-
+            https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
+        image:
+          type: string
+          description: URL for the main photo of the strain.
+          example: >-
+            https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: >-
+            Object of countries that this strain has lineages from. {'Country
+            Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Colombia: CO
+            India: IN
+            Mexico: MX
+            Thailand: TH
+        genetics:
+          type: object
+          properties: {}
+          description: >-
+            Names of the parents of the strains and their associated Open
+            Cannabis Product Codes.
+          example:
+            names: '(Northern Lights #5 x Skunk #1) x Haze'
+            ucpc: >-
+              (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x
+              9XVU7WJQCD000000000000000
+        children:
+          type: array
+          description: Open Cannabis Product Codes of the children of this strain.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Strain
+    Study:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the study.
+          example: >-
+            Trans- ² -Caryophyllene: An Effective Antileishmanial Compound Found
+            in Commercial Copaiba Oil (Copaifera spp.).
+        year:
+          type: integer
+          description: Year of the study.
+          example: 2013
+        doi:
+          type: string
+          description: Digital Object Identifier for the study.
+          example: 10.1155/2013/761323
+        pubMedId:
+          type: string
+          description: PubMed ID for the study.
+          example: '23864897'
+        slug:
+          type: string
+          description: Slug based on the study name.
+          example: >-
+            trans-b-caryophyllene-an-effective-antileishmanial-compound-found-in-commercial-copaiba-oil-copaifera-spp
+        keyFindings:
+          type: string
+          description: Key findings for the study.
+          example: >-
+            This study pointed out ² -caryophyllene as an effective
+            antileishmanial compound.
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Condition'
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Study
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+x-original-swagger-version: '2.0'
