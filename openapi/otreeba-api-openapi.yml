@@ -46,7 +46,8 @@ paths:
   /seed-companies:
     get:
       tags:
-        - Seed Companies
+        - Seed
+        - Seed  Companies
       summary: Get a list of all current seed companies.
       description: Returns a paginated list of seed companies.
       operationId: getSeedCompanies
@@ -100,7 +101,8 @@ paths:
   /seed-companies/{ocpc}:
     get:
       tags:
-        - Seed Companies
+        - Seed
+        - Ocpc
       summary: Find seed company by Open Cannabis Product Code (OCPC).
       description: Returns a single seed company.
       operationId: getSeedCompanyByOcpc
@@ -130,7 +132,9 @@ paths:
   /seed-companies/{ocpc}/strains:
     get:
       tags:
-        - Seed Companies
+        - Seed
+        - Ocpc
+        - Seed  Companies
       summary: Find strains for a seed company by Open Cannabis Product Code (OCPC).
       description: Returns a paginated list of strains for a single seed company.
       operationId: getSeedCompanyStrainsByOcpc
@@ -184,8 +188,7 @@ paths:
           content: {}
   /edibles:
     get:
-      tags:
-        - Edibles
+      tags: []
       summary: Get a list of all current edibles.
       description: Returns a paginated list of edibles.
       operationId: getEdibles
@@ -239,7 +242,7 @@ paths:
   /edibles/{ocpc}:
     get:
       tags:
-        - Edibles
+        - Ocpc
       summary: Find edible by Open Cannabis Product Code (OCPC).
       description: Returns a single edible.
       operationId: getEdibleByOcpc
@@ -268,8 +271,7 @@ paths:
           content: {}
   /extracts:
     get:
-      tags:
-        - Extracts
+      tags: []
       summary: Get a list of all current extracts.
       description: Returns a paginated list of extracts.
       operationId: getExtracts
@@ -323,7 +325,7 @@ paths:
   /extracts/{ocpc}:
     get:
       tags:
-        - Extracts
+        - Ocpc
       summary: Find extract by Open Cannabis Product Code (OCPC).
       description: Returns a single extract.
       operationId: getExtractByOcpc
@@ -352,8 +354,7 @@ paths:
           content: {}
   /flowers:
     get:
-      tags:
-        - Flowers
+      tags: []
       summary: Get a list of all current flowers.
       description: Returns a paginated list of flowers.
       operationId: getFlowers
@@ -407,7 +408,7 @@ paths:
   /flowers/{ocpc}:
     get:
       tags:
-        - Flowers
+        - Ocpc
       summary: Find flower by Open Cannabis Product Code (OCPC).
       description: Returns a single flower.
       operationId: getFlowerByOcpc
@@ -522,6 +523,7 @@ paths:
     get:
       tags:
         - Brands
+        - Flowers
       summary: Get a list of all current flowers for the given brand.
       description: Returns a paginated list of flowers.
       operationId: getBrandFlowers
@@ -582,6 +584,7 @@ paths:
     get:
       tags:
         - Brands
+        - Extracts
       summary: Get a list of all current extracts for the given brand.
       description: Returns a paginated list of extracts.
       operationId: getBrandExtracts
@@ -642,6 +645,7 @@ paths:
     get:
       tags:
         - Brands
+        - Edibles
       summary: Get a list of all current edibles for the given brand.
       description: Returns a paginated list of edibles.
       operationId: getBrandEdibles
@@ -702,6 +706,7 @@ paths:
     get:
       tags:
         - Brands
+        - Products
       summary: Get a list of all current products for the given brand.
       description: Returns a paginated list of products.
       operationId: getBrandProducts
@@ -844,8 +849,7 @@ paths:
           content: {}
   /strains:
     get:
-      tags:
-        - Strains
+      tags: []
       summary: Get a list of all current strains.
       description: Returns a paginated list of strains.
       operationId: getStrains
@@ -899,7 +903,7 @@ paths:
   /strains/{ocpc}:
     get:
       tags:
-        - Strains
+        - Ocpc
       summary: Find strain by Open Cannabis Product Code (OCPC).
       description: Returns a single strain.
       operationId: getStrainByOcpc
@@ -928,8 +932,7 @@ paths:
           content: {}
   /studies:
     get:
-      tags:
-        - Studies
+      tags: []
       summary: Get a list of all current studies.
       description: Returns a paginated list of studies.
       operationId: getStudies
@@ -983,7 +986,7 @@ paths:
   /studies/conditions:
     get:
       tags:
-        - Studies
+        - Conditions
       summary: Get a list of all current conditions for studies.
       description: Returns a list of all current conditions for studies.
       operationId: getStudiesConditions
@@ -1021,7 +1024,8 @@ paths:
   /studies/{identifierType}/{identifier}:
     get:
       tags:
-        - Studies
+        - Identifiers
+        - Type
       summary: Find study by DOI, PubMed ID, or slug.
       description: Returns a single study.
       operationId: getStudyByIdentifier
@@ -1062,7 +1066,9 @@ paths:
   /studies/conditions/{conditionSlug}:
     get:
       tags:
-        - Studies
+        - Conditions
+        - Condition
+        - Slug
       summary: Get a list of all current studies for a given condition.
       description: Returns a paginated list of studies.
       operationId: getStudiesByCondition
