@@ -11,6 +11,8 @@ apis:
     properties:
       - url: https://api.otreeba.com/swagger/
         type: Documentation
+      - type: OpenAPI
+        url: properties/otreeba-api-openapi.yml
     description: |-
 
       Open Cannabis Data for Your Technology Otreeba comes from the word
