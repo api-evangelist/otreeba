@@ -70,6 +70,5 @@ description: >-
   the positive impact they are making on the environment.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
-    X-twitter: apievangelist
-specificationVersion: '0.18'
+    email: kin@apievangelist.com
+specificationVersion: '0.19'
