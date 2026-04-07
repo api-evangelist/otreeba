@@ -4,21 +4,20 @@ apis:
   - aid: otreeba:otreeba-api
     name: Otreeba API
     tags:
+      - Brands
+      - Condition
+      - Conditions
+      - Edibles
+      - Extracts
+      - Flowers
+      - Identifiers
+      - Ocpc
+      - Products
       - Seed
       - Seed  Companies
-      - Ocpc
-      - Brands
-      - Flowers
-      - Extracts
-      - Edibles
-      - Products
-      - Conditions
-      - Identifiers
-      - Type
-      - Condition
       - Slug
-    image: 
-      https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Type
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: http://api.example.com
     humanURL: https://otreeba.com/
     properties:
@@ -33,9 +32,9 @@ apis:
       studies through a REST API.
 name: Otreeba
 tags:
-  - Hemp
   - Cannabis
   - Clothing
+  - Hemp
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
