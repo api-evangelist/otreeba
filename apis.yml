@@ -7,7 +7,7 @@ description: >-
   studies through a REST API.
 url: https://raw.githubusercontent.com/api-evangelist/otreeba/refs/heads/main/apis.yml
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-type: Contract
+kind: contract
 position: Consuming
 access: 3rd-Party
 tags:
@@ -48,13 +48,13 @@ apis:
       - FN: Otreeba API
         email: api@otreeba.com
 common:
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://otreeba.com/terms/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://otreeba.com/privacy-policy
   - type: OpenAPI
     url: https://api.otreeba.com/v1/swagger.json
-  - type: Sign Up
+  - type: SignUp
     url: https://otreeba.com/user/register
   - type: Sign In
     url: https://otreeba.com/user/login
