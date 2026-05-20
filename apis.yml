@@ -48,6 +48,8 @@ apis:
       - FN: Otreeba API
         email: api@otreeba.com
 common:
+  - type: GitHubOrganization
+    url: https://github.com/otreeba
   - type: TermsOfService
     url: https://otreeba.com/terms/
   - type: PrivacyPolicy
