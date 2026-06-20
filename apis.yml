@@ -6,7 +6,7 @@ description: >-
   for cannabis seed companies, strains, brands, products, batches, retailers, and
   studies through a REST API.
 url: https://raw.githubusercontent.com/api-evangelist/otreeba/refs/heads/main/apis.yml
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 kind: contract
 position: Consuming
 access: 3rd-Party
@@ -24,7 +24,7 @@ apis:
       Open Cannabis Data for Your Technology. Standardized cannabis data and
       normalization for cannabis seed companies, strains, brands, products,
       batches, retailers, and studies through a REST API.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://otreeba.com/
     baseURL: https://api.otreeba.com/v1
     tags:
