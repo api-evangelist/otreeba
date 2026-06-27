@@ -56,9 +56,9 @@ common:
     url: https://otreeba.com/privacy-policy
   - type: OpenAPI
     url: https://api.otreeba.com/v1/swagger.json
-  - type: SignUp
+  - type: Signup
     url: https://otreeba.com/user/register
-  - type: Sign In
+  - type: Login
     url: https://otreeba.com/user/login
   - type: Plans
     url: https://otreeba.com/plans
