@@ -1,0 +1,297 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Products API
+  description: '
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+
+    "abierto" which means "open." We offer standardized cannabis data and
+
+    normalization for cannabis seed companies, strains, brands, products,
+
+    batches, retailers, and studies through a REST API.'
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+servers:
+- url: https://api.otreeba.com/v1
+security:
+- api_key: []
+tags:
+- name: Products
+  description: Products not meant for consumption infused with cannabis extracts or flowers.
+paths:
+  /brands/{ocpc}/products:
+    get:
+      tags:
+      - Products
+      summary: Get a list of all current products for the given brand.
+      description: Returns a paginated list of products.
+      operationId: getBrandProducts
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list products for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Products for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /products:
+    get:
+      tags:
+      - Products
+      summary: Get a list of all current products.
+      description: Returns a paginated list of products.
+      operationId: getProducts
+      parameters:
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Products.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Product not found.
+          content: {}
+  /products/{ocpc}:
+    get:
+      tags:
+      - Products
+      summary: Find product by Open Cannabis Product Code (OCPC).
+      description: Returns a single product.
+      operationId: getProductByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the product to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Product not found.
+          content: {}
+components:
+  schemas:
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
+    Product:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the product.
+          example: X-Pen
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the product.
+          example: 0000000000YPLU3Z2YUM00000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created this product.
+          example:
+            name: Elixinol
+            ocpc: 0000000000YPLU30000000000
+        type:
+          type: string
+          description: Type of product.
+          example: Oil Applicator
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for this product.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the product.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/product-reports/qr-code/elixinol/x-pen.png
+        url:
+          type: string
+          description: URL for the product on Cannabis Reports.
+          example: https://www.cannabisreports.com/product-reports/elixinol/x-pen
+        image:
+          type: string
+          description: URL for the main photo of the product.
+          example: https://www.cannabisreports.com/images/products/f/full_f592eb462df530c23a98d0fb6330fc895c8cfe18.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for this product.
+          example: https://www.cannabisreports.com/lab-tests/1/140c73d2606fded84e6a14ca07aed77eb1e73827.pdf
+        thc:
+          type: string
+          description: THC measurement for this product.
+          example: 0mg
+        cbd:
+          type: string
+          description: CBD measurement for this product.
+          example: 1,000mg
+        cannabis:
+          type: string
+          description: Cannabis measurement for this product.
+          example: ''
+        hashOil:
+          type: string
+          description: Hash oil measurement for this product.
+          example: ''
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Product
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+x-original-swagger-version: '2.0'

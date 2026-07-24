@@ -1,0 +1,148 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Identifiers API
+  description: '
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+
+    "abierto" which means "open." We offer standardized cannabis data and
+
+    normalization for cannabis seed companies, strains, brands, products,
+
+    batches, retailers, and studies through a REST API.'
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+servers:
+- url: https://api.otreeba.com/v1
+security:
+- api_key: []
+tags:
+- name: Identifiers
+paths:
+  /studies/{identifierType}/{identifier}:
+    get:
+      tags:
+      - Identifiers
+      summary: Find study by DOI, PubMed ID, or slug.
+      description: Returns a single study.
+      operationId: getStudyByIdentifier
+      parameters:
+      - name: identifierType
+        in: path
+        description: Type of identifier to for the study to return.
+        required: true
+        schema:
+          type: string
+          default: doi
+          enum:
+          - doi
+          - pubMedId
+          - slug
+      - name: identifier
+        in: path
+        description: Identifier for the study to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Study'
+        '400':
+          description: Invalid argument supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Study not found.
+          content: {}
+components:
+  schemas:
+    Study:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the study.
+          example: 'Trans- � -Caryophyllene: An Effective Antileishmanial Compound Found in Commercial Copaiba Oil (Copaifera spp.).'
+        year:
+          type: integer
+          description: Year of the study.
+          example: 2013
+        doi:
+          type: string
+          description: Digital Object Identifier for the study.
+          example: 10.1155/2013/761323
+        pubMedId:
+          type: string
+          description: PubMed ID for the study.
+          example: '23864897'
+        slug:
+          type: string
+          description: Slug based on the study name.
+          example: trans-b-caryophyllene-an-effective-antileishmanial-compound-found-in-commercial-copaiba-oil-copaifera-spp
+        keyFindings:
+          type: string
+          description: Key findings for the study.
+          example: This study pointed out � -caryophyllene as an effective antileishmanial compound.
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Condition'
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Study
+    Condition:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the condition.
+          example: Fibromyalgia
+        slug:
+          type: string
+          description: Slug based on the condition name.
+          example: fibromyalgia
+        description:
+          type: string
+          description: Description of the condition.
+          example: Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Condition
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+x-original-swagger-version: '2.0'

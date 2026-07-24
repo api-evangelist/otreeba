@@ -1,0 +1,460 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Brands API
+  description: '
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+
+    "abierto" which means "open." We offer standardized cannabis data and
+
+    normalization for cannabis seed companies, strains, brands, products,
+
+    batches, retailers, and studies through a REST API.'
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+servers:
+- url: https://api.otreeba.com/v1
+security:
+- api_key: []
+tags:
+- name: Brands
+  description: Companies that create or distribute various forms of flowers, extracts, edibles, or products.
+paths:
+  /brands:
+    get:
+      tags:
+      - Brands
+      summary: Get a list of all current brands.
+      description: Returns a paginated list of brands.
+      operationId: getBrands
+      parameters:
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Brands.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}:
+    get:
+      tags:
+      - Brands
+      summary: Find brand by Open Cannabis Product Code (OCPC).
+      description: Returns a single brand.
+      operationId: getBrandByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/flowers:
+    get:
+      tags:
+      - Brands
+      summary: Get a list of all current flowers for the given brand.
+      description: Returns a paginated list of flowers.
+      operationId: getBrandFlowers
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list flowers for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Flowers for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/extracts:
+    get:
+      tags:
+      - Brands
+      summary: Get a list of all current extracts for the given brand.
+      description: Returns a paginated list of extracts.
+      operationId: getBrandExtracts
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list extracts for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Extracts for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/edibles:
+    get:
+      tags:
+      - Brands
+      summary: Get a list of all current edibles for the given brand.
+      description: Returns a paginated list of edibles.
+      operationId: getBrandEdibles
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list edibles for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Edibles for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+  /brands/{ocpc}/products:
+    get:
+      tags:
+      - Brands
+      summary: Get a list of all current products for the given brand.
+      description: Returns a paginated list of products.
+      operationId: getBrandProducts
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list products for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Products for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+components:
+  schemas:
+    Brand:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the brand.
+          example: Kiva
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the brand.
+          example: 0000000000L6M7E0000000000
+        link:
+          type: string
+          description: URL for brand on Otreeba.
+          example: https://api.otreeba.com/v1/brands/0000000000L6M7E0000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/producer-reports/kiva/qr-code
+        url:
+          type: string
+          description: URL for brand on Cannabis Reports.
+          example: https://www.cannabisreports.com/producer-reports/kiva
+        image:
+          type: string
+          description: URL for logo for brand.
+          example: https://www.cannabisreports.com/images/profile/8/full_8b44ce75bfba676790018d8a1d275d4d736883a9.jpg
+        flowers:
+          type: array
+          description: OCPCs of the flowers from this brand.
+          items:
+            type: string
+        extracts:
+          type: array
+          description: OCPCs of the extracts from this brand.
+          items:
+            type: string
+        edibles:
+          type: array
+          description: OCPCs of the edibles from this brand.
+          items:
+            type: string
+        products:
+          type: array
+          description: OCPCs of the products from this brand.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Brand
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+x-original-swagger-version: '2.0'

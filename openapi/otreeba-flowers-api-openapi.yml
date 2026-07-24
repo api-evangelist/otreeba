@@ -1,0 +1,191 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Flowers API
+  description: '
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+
+    "abierto" which means "open." We offer standardized cannabis data and
+
+    normalization for cannabis seed companies, strains, brands, products,
+
+    batches, retailers, and studies through a REST API.'
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+servers:
+- url: https://api.otreeba.com/v1
+security:
+- api_key: []
+tags:
+- name: Flowers
+  description: Finished cannabis seeds, clones, flowers, or shake.
+paths:
+  /flowers:
+    get:
+      tags:
+      - Flowers
+      summary: Get a list of all current flowers.
+      description: Returns a paginated list of flowers.
+      operationId: getFlowers
+      parameters:
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Flowers.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Flower not found.
+          content: {}
+  /brands/{ocpc}/flowers:
+    get:
+      tags:
+      - Flowers
+      summary: Get a list of all current flowers for the given brand.
+      description: Returns a paginated list of flowers.
+      operationId: getBrandFlowers
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the brand to list flowers for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      - name: sort
+        in: query
+        description: How to sort the items.
+        schema:
+          type: string
+          default: -createdAt
+          enum:
+          - -createdAt
+          - createdAt
+          - -updatedAt
+          - updatedAt
+          - -name
+          - name
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the current list of Flowers for a Brand.
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Brand not found.
+          content: {}
+components:
+  schemas:
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+x-original-swagger-version: '2.0'

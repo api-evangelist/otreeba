@@ -1,0 +1,599 @@
+openapi: 3.0.1
+info:
+  title: Otreeba Ocpc API
+  description: '
+
+    Open Cannabis Data for Your Technology Otreeba comes from the word
+
+    "abierto" which means "open." We offer standardized cannabis data and
+
+    normalization for cannabis seed companies, strains, brands, products,
+
+    batches, retailers, and studies through a REST API.'
+  termsOfService: https://otreeba.com/terms/
+  contact:
+    email: api@otreeba.com
+  license:
+    name: Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  version: 1.0.0
+servers:
+- url: https://api.otreeba.com/v1
+security:
+- api_key: []
+tags:
+- name: Ocpc
+paths:
+  /seed-companies/{ocpc}:
+    get:
+      tags:
+      - Ocpc
+      summary: Find seed company by Open Cannabis Product Code (OCPC).
+      description: Returns a single seed company.
+      operationId: getSeedCompanyByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the seed company to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeedCompany'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Seed company not found.
+          content: {}
+  /seed-companies/{ocpc}/strains:
+    get:
+      tags:
+      - Ocpc
+      summary: Find strains for a seed company by Open Cannabis Product Code (OCPC).
+      description: Returns a paginated list of strains for a single seed company.
+      operationId: getSeedCompanyStrainsByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the seed company to return strains for.
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be returned.
+        schema:
+          type: integer
+      - name: count
+        in: query
+        description: The number of items to return. Default 10. Max 50.
+        schema:
+          type: integer
+          default: 10
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    description: Gets the Strains for a Seed Company listing from a given OCPC.
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+                    description: Gets the Strains for a Seed Company listing from a given OCPC.
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Seed company not found.
+          content: {}
+  /edibles/{ocpc}:
+    get:
+      tags:
+      - Ocpc
+      summary: Find edible by Open Cannabis Product Code (OCPC).
+      description: Returns a single edible.
+      operationId: getEdibleByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the edible to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edible'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Edible not found.
+          content: {}
+  /extracts/{ocpc}:
+    get:
+      tags:
+      - Ocpc
+      summary: Find extract by Open Cannabis Product Code (OCPC).
+      description: Returns a single extract.
+      operationId: getExtractByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the extract to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Extract'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Extract not found.
+          content: {}
+  /flowers/{ocpc}:
+    get:
+      tags:
+      - Ocpc
+      summary: Find flower by Open Cannabis Product Code (OCPC).
+      description: Returns a single flower.
+      operationId: getFlowerByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the flower to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flower'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Flower not found.
+          content: {}
+  /strains/{ocpc}:
+    get:
+      tags:
+      - Ocpc
+      summary: Find strain by Open Cannabis Product Code (OCPC).
+      description: Returns a single strain.
+      operationId: getStrainByOcpc
+      parameters:
+      - name: ocpc
+        in: path
+        description: OCPC of the strain to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Strain'
+        '400':
+          description: Invalid OCPC supplied.
+          content: {}
+        '401':
+          description: Unauthorized action.
+          content: {}
+        '404':
+          description: Strain not found.
+          content: {}
+components:
+  schemas:
+    Flower:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the flowers.
+          example: Half Dome Haze - Flowers
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the flowers.
+          example: 9XVU7JDFUGLTE2ATJ7CD00000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created these flowers.
+          example:
+            name: Advantage Healing
+            ocpc: 0000000000LTE2A0000000000
+        type:
+          type: string
+          description: Type of flowers.
+          example: flowers
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these flowers.
+          example:
+            name: Half Dome Haze
+            ocpc: 9XVU7JDFUG000000000000000
+        description:
+          type: string
+          description: Description of the flowers.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers/qr-code.svg
+        url:
+          type: string
+          description: URL for the flowers on Cannabis Reports.
+          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers
+        image:
+          type: string
+          description: URL for the main photo of the flowers.
+          example: https://www.cannabisreports.com/images/flowers/c/full_c4b27703dedbccd4a9f4bb0ca89bf4520aa4aca0.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for these flowers.
+          example: https://www.cannabisreports.com/lab-tests/c/c702502526ef743651e29f14ccfa84423fadfdf0.pdf
+        thc:
+          type: string
+          description: THC measurement for these flowers.
+          example: 27.50%
+        cbd:
+          type: string
+          description: CBD measurement for these flowers.
+          example: 0.05%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Flower
+    Extract:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the extract.
+          example: Confidential Cheese - Wax
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the extract.
+          example: TTUYNUF3TP6DZTPWPG3200000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created these extract.
+          example:
+            name: Kaizen Medicinal
+            ocpc: 00000000006DZTP0000000000
+        type:
+          type: string
+          description: Type of extract.
+          example: wax
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these extract.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the extract.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
+        url:
+          type: string
+          description: URL for the extract on Cannabis Reports.
+          example: https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
+        image:
+          type: string
+          description: URL for the main photo of the extract.
+          example: https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for these extract.
+          example: https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
+        thc:
+          type: string
+          description: THC measurement for these extract.
+          example: 87.92%
+        cbd:
+          type: string
+          description: CBD measurement for these extract.
+          example: 0.22%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Extract
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
+    Edible:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the edible.
+          example: Moxey's Mints - Ginger
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the edible.
+          example: 0000000000NJKLWH2HNZ00000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created this edible.
+          example:
+            name: Mr. Moxey's Mints
+            ocpc: 0000000000NJKLW0000000000
+        type:
+          type: string
+          description: Type of edible.
+          example: Mint
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for this edible.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the edible.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/edible-reports/qr-code/mr-moxeys-mints/moxeys-mints-ginger
+        url:
+          type: string
+          description: URL for the edible on Cannabis Reports.
+          example: https://www.cannabisreports.com/edible-reports/mr-moxeys-mints/moxeys-mints-ginger
+        image:
+          type: string
+          description: URL for the main photo of the edible.
+          example: https://www.cannabisreports.com/images/edibles/b/full_bf53ef28bb19d97624cab43e12614b3affbf1a31.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for this edible.
+          example: https://www.cannabisreports.com/lab-tests/b/bf53ef28bb19d97624cab43e12614b3affbf1a31.pdf
+        thc:
+          type: string
+          description: THC measurement for this edible.
+          example: 20mg
+        cbd:
+          type: string
+          description: CBD measurement for this edible.
+          example: 100mg
+        cannabis:
+          type: string
+          description: Cannabis measurement for this edible.
+          example: 0mg
+        hashOil:
+          type: string
+          description: Hash oil measurement for this edible.
+          example: 0mg
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Edible
+    Strain:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the strain.
+          example: Jack Herer
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the strain.
+          example: VUJCJ4TYMG000000000000000
+        seedCompany:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the seed company that created the strain.
+          example:
+            name: Sensi Seeds
+            ocpc: VUJCJ00000000000000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
+        url:
+          type: string
+          description: URL for strain on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
+        image:
+          type: string
+          description: URL for the main photo of the strain.
+          example: https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Colombia: CO
+            India: IN
+            Mexico: MX
+            Thailand: TH
+        genetics:
+          type: object
+          properties: {}
+          description: Names of the parents of the strains and their associated Open Cannabis Product Codes.
+          example:
+            names: '(Northern Lights #5 x Skunk #1) x Haze'
+            ucpc: (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000
+        children:
+          type: array
+          description: Open Cannabis Product Codes of the children of this strain.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Strain
+    SeedCompany:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the seed company.
+          example: Sensi Seeds
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the seed company.
+          example: VUJCJ00000000000000000000
+        description:
+          type: string
+          description: Description of the seed company.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg
+        url:
+          type: string
+          description: URL for seed company on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds
+        image:
+          type: string
+          description: URL for logo for seed company.
+          example: https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Canada: CA
+            Colombia: CO
+            Hungary: HU
+            India: IN
+        strains:
+          type: array
+          description: OCPCs of the strains from this seed company.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Seed Company
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-Key
+      in: header
+externalDocs:
+  description: Find out more about Otreeba
+  url: https://otreeba.com
+x-original-swagger-version: '2.0'
