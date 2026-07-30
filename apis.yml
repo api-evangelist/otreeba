@@ -6,7 +6,19 @@ description: >-
   for cannabis seed companies, strains, brands, products, batches, retailers, and
   studies through a REST API.
 url: https://raw.githubusercontent.com/api-evangelist/otreeba/refs/heads/main/apis.yml
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/otreeba.png
 kind: contract
 position: Consuming
 access: 3rd-Party
@@ -18,35 +30,187 @@ created: '2024-11-05'
 modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
-  - aid: otreeba:otreeba-api
-    name: Otreeba API
-    description: >-
-      Open Cannabis Data for Your Technology. Standardized cannabis data and
-      normalization for cannabis seed companies, strains, brands, products,
-      batches, retailers, and studies through a REST API.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://otreeba.com/
-    baseURL: https://api.otreeba.com/v1
-    tags:
-      - Brands
-      - Conditions
-      - Edibles
-      - Extracts
-      - Flowers
-      - Identifiers
-      - OCPC
-      - Products
-      - Seed Companies
-      - Strains
-      - Studies
-    properties:
-      - type: Documentation
-        url: https://api.otreeba.com/swagger/
-      - type: OpenAPI
-        url: openapi/otreeba-api-openapi.yml
-    contact:
-      - FN: Otreeba API
-        email: api@otreeba.com
+- aid: otreeba:otreeba-brands-api
+  name: Otreeba Brands API
+  description: >-
+    Companies that create or distribute various forms of flowers, extracts, edibles, or products.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Brands
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-brands-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-condition-api
+  name: Otreeba Condition API
+  description: The Condition API from Otreeba — 1 operation(s) for condition.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Condition
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-condition-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-conditions-api
+  name: Otreeba Conditions API
+  description: The Conditions API from Otreeba — 2 operation(s) for conditions.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Conditions
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-conditions-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-edibles-api
+  name: Otreeba Edibles API
+  description: Consumable products infused with cannabis extracts or flowers.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Edibles
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-edibles-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-extracts-api
+  name: Otreeba Extracts API
+  description: Extracted or concentrated forms of cannabis.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Extracts
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-extracts-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-flowers-api
+  name: Otreeba Flowers API
+  description: Finished cannabis seeds, clones, flowers, or shake.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Flowers
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-flowers-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-identifiers-api
+  name: Otreeba Identifiers API
+  description: The Identifiers API from Otreeba — 1 operation(s) for identifiers.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Identifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-identifiers-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-ocpc-api
+  name: Otreeba Ocpc API
+  description: The Ocpc API from Otreeba — 6 operation(s) for ocpc.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Ocpc
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-ocpc-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-products-api
+  name: Otreeba Products API
+  description: Products not meant for consumption infused with cannabis extracts or flowers.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-products-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-seed-api
+  name: Otreeba Seed API
+  description: The Seed API from Otreeba — 3 operation(s) for seed.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Seed
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-seed-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-seed-companies-api
+  name: Otreeba Seed  Companies API
+  description: The Seed  Companies API from Otreeba — 2 operation(s) for seed  companies.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Seed  Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-seed-companies-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-slug-api
+  name: Otreeba Slug API
+  description: The Slug API from Otreeba — 1 operation(s) for slug.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Slug
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-slug-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-strains-api
+  name: Otreeba Strains API
+  description: Individual varieities of cannabis.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Strains
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-strains-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-studies-api
+  name: Otreeba Studies API
+  description: Studies on cannabis for different medical conditions.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Studies
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-studies-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
+- aid: otreeba:otreeba-type-api
+  name: Otreeba Type API
+  description: The Type API from Otreeba — 1 operation(s) for type.
+  humanURL: https://otreeba.com/
+  baseURL: https://api.otreeba.com/v1
+  tags:
+  - Type
+  properties:
+  - type: OpenAPI
+    url: openapi/otreeba-type-api-openapi.yml
+  - type: Documentation
+    url: https://api.otreeba.com/swagger/
 common:
   - type: DomainSecurity
     url: security/otreeba-domain-security.yml
