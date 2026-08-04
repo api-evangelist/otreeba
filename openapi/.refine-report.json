@@ -1,0 +1,44 @@
+{
+  "provider": "otreeba",
+  "sources": [
+    "otreeba-api-openapi.yml"
+  ],
+  "outputs": [
+    "otreeba-brands-api-openapi.yml",
+    "otreeba-condition-api-openapi.yml",
+    "otreeba-conditions-api-openapi.yml",
+    "otreeba-edibles-api-openapi.yml",
+    "otreeba-extracts-api-openapi.yml",
+    "otreeba-flowers-api-openapi.yml",
+    "otreeba-identifiers-api-openapi.yml",
+    "otreeba-ocpc-api-openapi.yml",
+    "otreeba-products-api-openapi.yml",
+    "otreeba-seed-api-openapi.yml",
+    "otreeba-seed-companies-api-openapi.yml",
+    "otreeba-slug-api-openapi.yml",
+    "otreeba-strains-api-openapi.yml",
+    "otreeba-studies-api-openapi.yml",
+    "otreeba-type-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/otreeba-api-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "otreeba-api-openapi.yml: tagged GET /edibles -> Edibles",
+    "otreeba-api-openapi.yml: tagged GET /extracts -> Extracts",
+    "otreeba-api-openapi.yml: tagged GET /flowers -> Flowers",
+    "otreeba-api-openapi.yml: tagged GET /strains -> Strains",
+    "otreeba-api-openapi.yml: tagged GET /studies -> Studies",
+    "otreeba-api-openapi.yml: declared missing tag: Condition",
+    "otreeba-api-openapi.yml: declared missing tag: Conditions",
+    "otreeba-api-openapi.yml: declared missing tag: Identifiers",
+    "otreeba-api-openapi.yml: declared missing tag: Ocpc",
+    "otreeba-api-openapi.yml: declared missing tag: Seed",
+    "otreeba-api-openapi.yml: declared missing tag: Seed  Companies",
+    "otreeba-api-openapi.yml: declared missing tag: Slug",
+    "otreeba-api-openapi.yml: declared missing tag: Type"
+  ],
+  "skipped": []
+}
