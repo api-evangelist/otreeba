@@ -1,0 +1,1819 @@
+{
+  "item": [
+    {
+      "id": "85fff601-dc75-4a29-b4f8-875bd66dc23a",
+      "name": "Brands",
+      "description": {
+        "content": "Companies that create or distribute various forms of flowers, extracts, edibles, or products.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "879c8398-e54e-4dfb-8906-e30932a77df9",
+          "name": "Get a list of all current brands.",
+          "request": {
+            "name": "Get a list of all current brands.",
+            "description": {
+              "content": "Returns a paginated list of brands.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "description": "How to sort the items."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92566133-c817-408f-bb51-2fb7f94f741a",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb5af494-603c-477b-a776-489d89336d43",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "799d4430-6bfe-4bc2-8a2a-6cddd516d978",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ea1f476-d6c9-481a-8f6e-7e3e4aba7a37",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a39289b1-5892-4e74-a386-c5866ecd9636",
+          "name": "Find brand by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find brand by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single brand.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the brand to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14f78bae-11b3-47ad-95b3-92c545b31716",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Kiva\",\n  \"ocpc\": \"0000000000L6M7E0000000000\",\n  \"link\": \"https://api.otreeba.com/v1/brands/0000000000L6M7E0000000000\",\n  \"qr\": \"https://www.cannabisreports.com/producer-reports/kiva/qr-code\",\n  \"url\": \"https://www.cannabisreports.com/producer-reports/kiva\",\n  \"image\": \"https://www.cannabisreports.com/images/profile/8/full_8b44ce75bfba676790018d8a1d275d4d736883a9.jpg\",\n  \"flowers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"extracts\": [\n    \"string\",\n    \"string\"\n  ],\n  \"edibles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"products\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createdAt\": \"2017-01-22T14:17:02.648Z\",\n  \"updatedAt\": \"2016-07-21T21:05:31.785Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3df28ed0-2088-45d8-ab07-79ddab40d2de",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82d4bb29-76c5-413a-91f5-e28204352acc",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c7380f9-f3f9-4d94-aaa7-158f7f491913",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c01ec51-28f6-4964-83f7-99d308a613a9",
+          "name": "Get a list of all current flowers for the given brand.",
+          "request": {
+            "name": "Get a list of all current flowers for the given brand.",
+            "description": {
+              "content": "Returns a paginated list of flowers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands",
+                ":ocpc",
+                "flowers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "description": "How to sort the items."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the brand to list flowers for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65361930-d3e9-4cdd-a054-7490dad76be8",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "flowers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list flowers for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19aaf4dc-6219-43d6-8b00-fc19218bec87",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "flowers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list flowers for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f4d68ab-6981-4859-9380-521e4a85fbe0",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "flowers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list flowers for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47741e60-87f4-476e-9edf-ae7b0276a9b2",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "flowers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list flowers for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fd51cd6-bbf4-40dd-8047-ccd3e6ed9009",
+          "name": "Get a list of all current extracts for the given brand.",
+          "request": {
+            "name": "Get a list of all current extracts for the given brand.",
+            "description": {
+              "content": "Returns a paginated list of extracts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands",
+                ":ocpc",
+                "extracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "description": "How to sort the items."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the brand to list extracts for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8860908-87c6-4fbb-82f7-53b938d62ed1",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "extracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list extracts for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16a2ce5d-459e-4102-b0d3-f8b5c1f6674a",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "extracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list extracts for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d48c1ea-f537-4244-a19b-410c32d21ab4",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "extracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list extracts for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c64404a6-3fdc-4dfc-92ee-cf000c5ef64f",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "extracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list extracts for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a14b135a-a7fa-4e17-ae26-c8b8dddd18e9",
+          "name": "Get a list of all current edibles for the given brand.",
+          "request": {
+            "name": "Get a list of all current edibles for the given brand.",
+            "description": {
+              "content": "Returns a paginated list of edibles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands",
+                ":ocpc",
+                "edibles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "description": "How to sort the items."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the brand to list edibles for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab303897-cc5a-4c81-bd6a-ebfb0472ee64",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "edibles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list edibles for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e70b6da8-9e32-488d-ada0-fe2f6444ec86",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "edibles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list edibles for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d67380e1-475f-4759-9311-2a3dea9eee66",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "edibles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list edibles for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e3e4eeb-9fe4-4ae1-ba7a-df1d6a3c2d6d",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "edibles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list edibles for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "317fd687-176e-4205-8458-99c5f7a08383",
+          "name": "Get a list of all current products for the given brand.",
+          "request": {
+            "name": "Get a list of all current products for the given brand.",
+            "description": {
+              "content": "Returns a paginated list of products.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "brands",
+                ":ocpc",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "-createdAt",
+                  "description": "How to sort the items."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the brand to list products for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09e8f78b-d153-472a-ad60-a4857eed8b46",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list products for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ce9c442-6e4e-4b3c-82cb-d58aec6a4ea2",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list products for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "470562e9-35dd-4b8c-a602-831e5a214f90",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list products for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85093622-9555-402c-a566-59999acf4a77",
+              "name": "Brand not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "brands",
+                    ":ocpc",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the brand to list products for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.otreeba.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b6fc7a76-a805-44b9-a7c4-d6fc848b00f1",
+    "name": "Otreeba Brands API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nOpen Cannabis Data for Your Technology Otreeba comes from the word\n\"abierto\" which means \"open.\" We offer standardized cannabis data and\nnormalization for cannabis seed companies, strains, brands, products,\nbatches, retailers, and studies through a REST API.\n\nContact Support:\n Email: api@otreeba.com",
+      "type": "text/plain"
+    }
+  }
+}

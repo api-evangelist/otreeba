@@ -1,0 +1,329 @@
+{
+  "item": [
+    {
+      "id": "534e68a0-a4a2-4973-a062-f0e2155913b3",
+      "name": "Type",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c21036f-edb1-4a3e-90be-a68dcd1fcba7",
+          "name": "Find study by DOI, PubMed ID, or slug.",
+          "request": {
+            "name": "Find study by DOI, PubMed ID, or slug.",
+            "description": {
+              "content": "Returns a single study.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "studies",
+                ":identifierType",
+                ":identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "doi",
+                  "key": "identifierType",
+                  "description": "(Required) Type of identifier to for the study to return."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) Identifier for the study to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36910343-ddf3-4363-b991-ce61af9925d6",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studies",
+                    ":identifierType",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "doi",
+                      "key": "identifierType",
+                      "description": "(Required) Type of identifier to for the study to return."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for the study to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Trans- � -Caryophyllene: An Effective Antileishmanial Compound Found in Commercial Copaiba Oil (Copaifera spp.).\",\n  \"year\": 2013,\n  \"doi\": \"10.1155/2013/761323\",\n  \"pubMedId\": \"23864897\",\n  \"slug\": \"trans-b-caryophyllene-an-effective-antileishmanial-compound-found-in-commercial-copaiba-oil-copaifera-spp\",\n  \"keyFindings\": \"This study pointed out � -caryophyllene as an effective antileishmanial compound.\",\n  \"conditions\": [\n    {\n      \"name\": \"Fibromyalgia\",\n      \"slug\": \"fibromyalgia\",\n      \"description\": \"Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.\",\n      \"createdAt\": \"2009-04-12T11:36:25.481Z\",\n      \"updatedAt\": \"1954-08-10T10:33:54.272Z\"\n    },\n    {\n      \"name\": \"Fibromyalgia\",\n      \"slug\": \"fibromyalgia\",\n      \"description\": \"Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.\",\n      \"createdAt\": \"1997-09-13T14:10:30.025Z\",\n      \"updatedAt\": \"1986-02-14T07:34:36.174Z\"\n    }\n  ],\n  \"createdAt\": \"2007-10-12T03:25:15.426Z\",\n  \"updatedAt\": \"2010-08-18T04:33:16.728Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18dc8efa-8650-482e-b735-01f239c5820a",
+              "name": "Invalid argument supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studies",
+                    ":identifierType",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "doi",
+                      "key": "identifierType",
+                      "description": "(Required) Type of identifier to for the study to return."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for the study to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f86406b2-5a64-4dfe-9988-8a8a99df11a7",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studies",
+                    ":identifierType",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "doi",
+                      "key": "identifierType",
+                      "description": "(Required) Type of identifier to for the study to return."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for the study to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3889190-2652-4f2a-a12f-92ac6e329e54",
+              "name": "Study not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studies",
+                    ":identifierType",
+                    ":identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "doi",
+                      "key": "identifierType",
+                      "description": "(Required) Type of identifier to for the study to return."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) Identifier for the study to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.otreeba.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f9bcb3cc-ee1f-41d0-bd15-28c980c90903",
+    "name": "Otreeba Type API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nOpen Cannabis Data for Your Technology Otreeba comes from the word\n\"abierto\" which means \"open.\" We offer standardized cannabis data and\nnormalization for cannabis seed companies, strains, brands, products,\nbatches, retailers, and studies through a REST API.\n\nContact Support:\n Email: api@otreeba.com",
+      "type": "text/plain"
+    }
+  }
+}

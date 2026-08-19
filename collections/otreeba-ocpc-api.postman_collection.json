@@ -1,0 +1,1543 @@
+{
+  "item": [
+    {
+      "id": "d61ada45-d615-4f10-98ca-fa7eedad210c",
+      "name": "Ocpc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69559ae6-0320-435c-b6b4-8a8e45e6079e",
+          "name": "Find seed company by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find seed company by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single seed company.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seed-companies",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the seed company to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8503226-ef9b-4fe2-a26d-cc28b09cd864",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Sensi Seeds\",\n  \"ocpc\": \"VUJCJ00000000000000000000\",\n  \"description\": \"string\",\n  \"qr\": \"https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg\",\n  \"url\": \"https://www.cannabisreports.com/strain-reports/sensi-seeds\",\n  \"image\": \"https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg\",\n  \"lineage\": {\n    \"Afghanistan\": \"AF\",\n    \"Canada\": \"CA\",\n    \"Colombia\": \"CO\",\n    \"Hungary\": \"HU\",\n    \"India\": \"IN\"\n  },\n  \"strains\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createdAt\": \"2022-09-10T02:17:24.936Z\",\n  \"updatedAt\": \"1985-01-01T01:42:59.557Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17b7da26-c56f-4497-b416-a1f404f208ee",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abc848e6-4ab5-4760-a69c-da85c270bacc",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4d71787-7355-4408-8127-7577a607d3e2",
+              "name": "Seed company not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62585991-a643-4dda-9bee-c10d93242e2a",
+          "name": "Find strains for a seed company by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find strains for a seed company by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a paginated list of strains for a single seed company.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seed-companies",
+                ":ocpc",
+                "strains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page to be returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "The number of items to return. Default 10. Max 50."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the seed company to return strains for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06170867-4cca-4a96-84bb-7a0bdbfa7889",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc",
+                    "strains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return strains for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"meta\": {\n    \"pagination\": {\n      \"total\": 64,\n      \"count\": 10,\n      \"per_page\": 10,\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"links\": {\n        \"previous\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1\",\n        \"next\": \"https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d407618-3c25-4b68-91bb-ae2992c94abf",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc",
+                    "strains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return strains for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea45db30-a670-4b21-833d-737105e12bc1",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc",
+                    "strains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return strains for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21333026-dd35-4f8f-b42c-4693f3be597b",
+              "name": "Seed company not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seed-companies",
+                    ":ocpc",
+                    "strains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the seed company to return strains for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "199d1b66-d109-48ea-aad3-9c94daabd2da",
+          "name": "Find edible by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find edible by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single edible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edibles",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the edible to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90d1e97c-6efc-4c1e-8a1a-5c9fb6878130",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edibles",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the edible to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Moxey's Mints - Ginger\",\n  \"ocpc\": \"0000000000NJKLWH2HNZ00000\",\n  \"brand\": {\n    \"name\": \"Mr. Moxey's Mints\",\n    \"ocpc\": \"0000000000NJKLW0000000000\"\n  },\n  \"type\": \"Mint\",\n  \"strain\": {\n    \"name\": \"Confidential Cheese\",\n    \"ocpc\": \"TTUYNUF3TP000000000000000\"\n  },\n  \"description\": \"string\",\n  \"qr\": \"https://www.cannabisreports.com/edible-reports/qr-code/mr-moxeys-mints/moxeys-mints-ginger\",\n  \"url\": \"https://www.cannabisreports.com/edible-reports/mr-moxeys-mints/moxeys-mints-ginger\",\n  \"image\": \"https://www.cannabisreports.com/images/edibles/b/full_bf53ef28bb19d97624cab43e12614b3affbf1a31.jpg\",\n  \"labTest\": \"https://www.cannabisreports.com/lab-tests/b/bf53ef28bb19d97624cab43e12614b3affbf1a31.pdf\",\n  \"thc\": \"20mg\",\n  \"cbd\": \"100mg\",\n  \"cannabis\": \"0mg\",\n  \"hashOil\": \"0mg\",\n  \"createdAt\": \"1986-03-31T06:18:07.206Z\",\n  \"updatedAt\": \"1948-10-05T03:10:52.253Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5992fce1-d0ba-47ae-bea1-d082e68a6e83",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edibles",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the edible to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8944b402-d80e-4151-82a4-65ede80620ce",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edibles",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the edible to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5536c47-a288-4864-a219-81553453be6a",
+              "name": "Edible not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edibles",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the edible to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10ba1787-894b-4847-bb46-24ceeca07b27",
+          "name": "Find extract by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find extract by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single extract.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "extracts",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the extract to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27a2c98a-4935-4016-a643-db233e154570",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extracts",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the extract to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Confidential Cheese - Wax\",\n  \"ocpc\": \"TTUYNUF3TP6DZTPWPG3200000\",\n  \"brand\": {\n    \"name\": \"Kaizen Medicinal\",\n    \"ocpc\": \"00000000006DZTP0000000000\"\n  },\n  \"type\": \"wax\",\n  \"strain\": {\n    \"name\": \"Confidential Cheese\",\n    \"ocpc\": \"TTUYNUF3TP000000000000000\"\n  },\n  \"description\": \"string\",\n  \"qr\": \"https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png\",\n  \"url\": \"https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax\",\n  \"image\": \"https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg\",\n  \"labTest\": \"https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf\",\n  \"thc\": \"87.92%\",\n  \"cbd\": \"0.22%\",\n  \"createdAt\": \"1994-10-01T06:33:11.631Z\",\n  \"updatedAt\": \"1996-12-06T06:29:09.807Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7921fdd-e34c-4956-ad09-3f01be2c26f9",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extracts",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the extract to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d05d9e81-2daf-409d-85a9-b6a535bac10b",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extracts",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the extract to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e17edeb6-55e6-4ae1-9754-6a49725e9d37",
+              "name": "Extract not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "extracts",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the extract to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b03fcfbd-4799-49d3-893a-6d570fc02706",
+          "name": "Find flower by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find flower by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single flower.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "flowers",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the flower to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc284f0d-5a0a-4f70-8899-f8be8b57683d",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flowers",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the flower to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Half Dome Haze - Flowers\",\n  \"ocpc\": \"9XVU7JDFUGLTE2ATJ7CD00000\",\n  \"brand\": {\n    \"name\": \"Advantage Healing\",\n    \"ocpc\": \"0000000000LTE2A0000000000\"\n  },\n  \"type\": \"flowers\",\n  \"strain\": {\n    \"name\": \"Half Dome Haze\",\n    \"ocpc\": \"9XVU7JDFUG000000000000000\"\n  },\n  \"description\": \"string\",\n  \"qr\": \"https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers/qr-code.svg\",\n  \"url\": \"https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers\",\n  \"image\": \"https://www.cannabisreports.com/images/flowers/c/full_c4b27703dedbccd4a9f4bb0ca89bf4520aa4aca0.jpg\",\n  \"labTest\": \"https://www.cannabisreports.com/lab-tests/c/c702502526ef743651e29f14ccfa84423fadfdf0.pdf\",\n  \"thc\": \"27.50%\",\n  \"cbd\": \"0.05%\",\n  \"createdAt\": \"1994-06-12T01:02:50.730Z\",\n  \"updatedAt\": \"1995-01-13T10:53:31.238Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c953fab-465c-4d1f-8e16-5805698ac504",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flowers",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the flower to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a065b71-be51-4c21-9b2e-d21b67d89905",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flowers",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the flower to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45ced70f-f51c-4576-9a70-ee70140cc00d",
+              "name": "Flower not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "flowers",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the flower to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e36de4b9-c8c5-4571-872f-15c91bae166e",
+          "name": "Find strain by Open Cannabis Product Code (OCPC).",
+          "request": {
+            "name": "Find strain by Open Cannabis Product Code (OCPC).",
+            "description": {
+              "content": "Returns a single strain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "strains",
+                ":ocpc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ocpc",
+                  "description": "(Required) OCPC of the strain to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76731210-5fa4-4bef-9980-2334814288b0",
+              "name": "Successful operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "strains",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the strain to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Jack Herer\",\n  \"ocpc\": \"VUJCJ4TYMG000000000000000\",\n  \"seedCompany\": {\n    \"name\": \"Sensi Seeds\",\n    \"ocpc\": \"VUJCJ00000000000000000000\"\n  },\n  \"qr\": \"https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg\",\n  \"url\": \"https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer\",\n  \"image\": \"https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg\",\n  \"lineage\": {\n    \"Afghanistan\": \"AF\",\n    \"Colombia\": \"CO\",\n    \"India\": \"IN\",\n    \"Mexico\": \"MX\",\n    \"Thailand\": \"TH\"\n  },\n  \"genetics\": {\n    \"names\": \"(Northern Lights #5 x Skunk #1) x Haze\",\n    \"ucpc\": \"(VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000\"\n  },\n  \"children\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createdAt\": \"2020-03-12T18:22:47.694Z\",\n  \"updatedAt\": \"1952-10-01T10:13:57.418Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc096ffd-e1bc-46f1-bf22-5aba3c42a7ea",
+              "name": "Invalid OCPC supplied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "strains",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the strain to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3a82c14-fb17-4eec-8dab-d839ef069056",
+              "name": "Unauthorized action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "strains",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the strain to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb8bb5b9-3605-4792-b44f-9f190c0bebde",
+              "name": "Strain not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "strains",
+                    ":ocpc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ocpc",
+                      "description": "(Required) OCPC of the strain to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.otreeba.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a9f8ff5d-12a6-496e-a2cd-acca8c964578",
+    "name": "Otreeba Ocpc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nOpen Cannabis Data for Your Technology Otreeba comes from the word\n\"abierto\" which means \"open.\" We offer standardized cannabis data and\nnormalization for cannabis seed companies, strains, brands, products,\nbatches, retailers, and studies through a REST API.\n\nContact Support:\n Email: api@otreeba.com",
+      "type": "text/plain"
+    }
+  }
+}

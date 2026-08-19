@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Otreeba Ocpc API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ocpc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Find seed company by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/seed-companies/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the seed company to return."
+              }
+            ]
+          },
+          "docs": "Returns a single seed company."
+        },
+        {
+          "info": {
+            "name": "Find strains for a seed company by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/seed-companies/:ocpc/strains",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the seed company to return strains for."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be returned."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return. Default 10. Max 50."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of strains for a single seed company."
+        },
+        {
+          "info": {
+            "name": "Find edible by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/edibles/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the edible to return."
+              }
+            ]
+          },
+          "docs": "Returns a single edible."
+        },
+        {
+          "info": {
+            "name": "Find extract by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/extracts/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the extract to return."
+              }
+            ]
+          },
+          "docs": "Returns a single extract."
+        },
+        {
+          "info": {
+            "name": "Find flower by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/flowers/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the flower to return."
+              }
+            ]
+          },
+          "docs": "Returns a single flower."
+        },
+        {
+          "info": {
+            "name": "Find strain by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/strains/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the strain to return."
+              }
+            ]
+          },
+          "docs": "Returns a single strain."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

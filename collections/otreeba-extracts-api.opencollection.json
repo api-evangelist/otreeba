@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Otreeba Extracts API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Extracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all current extracts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/extracts",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be returned."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return. Default 10. Max 50."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "How to sort the items."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of extracts."
+        },
+        {
+          "info": {
+            "name": "Get a list of all current extracts for the given brand.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/brands/:ocpc/extracts",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the brand to list extracts for."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be returned."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return. Default 10. Max 50."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "How to sort the items."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of extracts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

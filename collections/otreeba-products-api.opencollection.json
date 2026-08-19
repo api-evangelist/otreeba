@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Otreeba Products API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all current products for the given brand.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/brands/:ocpc/products",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the brand to list products for."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be returned."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return. Default 10. Max 50."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "How to sort the items."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of products."
+        },
+        {
+          "info": {
+            "name": "Get a list of all current products.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/products",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be returned."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to return. Default 10. Max 50."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "How to sort the items."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of products."
+        },
+        {
+          "info": {
+            "name": "Find product by Open Cannabis Product Code (OCPC).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otreeba.com/v1/products/:ocpc",
+            "params": [
+              {
+                "name": "ocpc",
+                "value": "",
+                "type": "path",
+                "description": "OCPC of the product to return."
+              }
+            ]
+          },
+          "docs": "Returns a single product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
