@@ -28,7 +28,7 @@ tags:
   - Clothing
 created: '2024-11-05'
 modified: '2026-04-28'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: otreeba:otreeba-brands-api
   name: Otreeba Brands API
