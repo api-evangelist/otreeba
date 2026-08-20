@@ -133,6 +133,8 @@ apis:
   humanURL: https://otreeba.com/
   baseURL: https://api.otreeba.com/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
