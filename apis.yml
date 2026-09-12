@@ -226,6 +226,8 @@ apis:
   - type: Documentation
     url: https://api.otreeba.com/swagger/
 common:
+  - type: Website
+    url: https://www.otreeba.com/
   - type: DomainSecurity
     url: security/otreeba-domain-security.yml
   - type: GitHubOrganization
