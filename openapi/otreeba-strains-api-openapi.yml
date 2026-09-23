@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Otreeba Strains API
-  description: '
-
-    Open Cannabis Data for Your Technology Otreeba comes from the word
+  description: 'Open Cannabis Data for Your Technology Otreeba comes from the word
 
     "abierto" which means "open." We offer standardized cannabis data and
 
@@ -29,7 +27,7 @@ paths:
     get:
       tags:
       - Strains
-      summary: Get a list of all current strains.
+      summary: Get a list of all current strains
       description: Returns a paginated list of strains.
       operationId: getStrains
       parameters:
@@ -81,13 +79,6 @@ paths:
           content: {}
 components:
   schemas:
-    Meta:
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-      xml:
-        name: Meta
     Pagination:
       type: object
       properties:
@@ -120,6 +111,13 @@ components:
             next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
       xml:
         name: Pagination
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
   securitySchemes:
     api_key:
       type: apiKey

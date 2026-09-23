@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Otreeba Ocpc API
-  description: '
-
-    Open Cannabis Data for Your Technology Otreeba comes from the word
+  description: 'Open Cannabis Data for Your Technology Otreeba comes from the word
 
     "abierto" which means "open." We offer standardized cannabis data and
 
@@ -28,7 +26,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find seed company by Open Cannabis Product Code (OCPC).
+      summary: Find seed company by Open Cannabis Product Code (OCPC)
       description: Returns a single seed company.
       operationId: getSeedCompanyByOcpc
       parameters:
@@ -58,7 +56,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find strains for a seed company by Open Cannabis Product Code (OCPC).
+      summary: Find strains for a seed company by Open Cannabis Product Code (OCPC)
       description: Returns a paginated list of strains for a single seed company.
       operationId: getSeedCompanyStrainsByOcpc
       parameters:
@@ -109,7 +107,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find edible by Open Cannabis Product Code (OCPC).
+      summary: Find edible by Open Cannabis Product Code (OCPC)
       description: Returns a single edible.
       operationId: getEdibleByOcpc
       parameters:
@@ -139,7 +137,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find extract by Open Cannabis Product Code (OCPC).
+      summary: Find extract by Open Cannabis Product Code (OCPC)
       description: Returns a single extract.
       operationId: getExtractByOcpc
       parameters:
@@ -169,7 +167,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find flower by Open Cannabis Product Code (OCPC).
+      summary: Find flower by Open Cannabis Product Code (OCPC)
       description: Returns a single flower.
       operationId: getFlowerByOcpc
       parameters:
@@ -199,7 +197,7 @@ paths:
     get:
       tags:
       - Ocpc
-      summary: Find strain by Open Cannabis Product Code (OCPC).
+      summary: Find strain by Open Cannabis Product Code (OCPC)
       description: Returns a single strain.
       operationId: getStrainByOcpc
       parameters:
@@ -227,142 +225,6 @@ paths:
           content: {}
 components:
   schemas:
-    Flower:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the flowers.
-          example: Half Dome Haze - Flowers
-        ocpc:
-          type: string
-          description: Open Cannabis Product Code for the flowers.
-          example: 9XVU7JDFUGLTE2ATJ7CD00000
-        brand:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the brand that created these flowers.
-          example:
-            name: Advantage Healing
-            ocpc: 0000000000LTE2A0000000000
-        type:
-          type: string
-          description: Type of flowers.
-          example: flowers
-        strain:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the strain for these flowers.
-          example:
-            name: Half Dome Haze
-            ocpc: 9XVU7JDFUG000000000000000
-        description:
-          type: string
-          description: Description of the flowers.
-        qr:
-          type: string
-          description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers/qr-code.svg
-        url:
-          type: string
-          description: URL for the flowers on Cannabis Reports.
-          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers
-        image:
-          type: string
-          description: URL for the main photo of the flowers.
-          example: https://www.cannabisreports.com/images/flowers/c/full_c4b27703dedbccd4a9f4bb0ca89bf4520aa4aca0.jpg
-        labTest:
-          type: string
-          description: URL for the PDF containing lab testing information for these flowers.
-          example: https://www.cannabisreports.com/lab-tests/c/c702502526ef743651e29f14ccfa84423fadfdf0.pdf
-        thc:
-          type: string
-          description: THC measurement for these flowers.
-          example: 27.50%
-        cbd:
-          type: string
-          description: CBD measurement for these flowers.
-          example: 0.05%
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Flower
-    Extract:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the extract.
-          example: Confidential Cheese - Wax
-        ocpc:
-          type: string
-          description: Open Cannabis Product Code for the extract.
-          example: TTUYNUF3TP6DZTPWPG3200000
-        brand:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the brand that created these extract.
-          example:
-            name: Kaizen Medicinal
-            ocpc: 00000000006DZTP0000000000
-        type:
-          type: string
-          description: Type of extract.
-          example: wax
-        strain:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the strain for these extract.
-          example:
-            name: Confidential Cheese
-            ocpc: TTUYNUF3TP000000000000000
-        description:
-          type: string
-          description: Description of the extract.
-        qr:
-          type: string
-          description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
-        url:
-          type: string
-          description: URL for the extract on Cannabis Reports.
-          example: https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
-        image:
-          type: string
-          description: URL for the main photo of the extract.
-          example: https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
-        labTest:
-          type: string
-          description: URL for the PDF containing lab testing information for these extract.
-          example: https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
-        thc:
-          type: string
-          description: THC measurement for these extract.
-          example: 87.92%
-        cbd:
-          type: string
-          description: CBD measurement for these extract.
-          example: 0.22%
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Extract
     Pagination:
       type: object
       properties:
@@ -471,6 +333,127 @@ components:
           format: date-time
       xml:
         name: Edible
+    Flower:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the flowers.
+          example: Half Dome Haze - Flowers
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the flowers.
+          example: 9XVU7JDFUGLTE2ATJ7CD00000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created these flowers.
+          example:
+            name: Advantage Healing
+            ocpc: 0000000000LTE2A0000000000
+        type:
+          type: string
+          description: Type of flowers.
+          example: flowers
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these flowers.
+          example:
+            name: Half Dome Haze
+            ocpc: 9XVU7JDFUG000000000000000
+        description:
+          type: string
+          description: Description of the flowers.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers/qr-code.svg
+        url:
+          type: string
+          description: URL for the flowers on Cannabis Reports.
+          example: https://www.cannabisreports.com/flower-reports/advantage-healing/unknown-breeder/half-dome-haze/flowers
+        image:
+          type: string
+          description: URL for the main photo of the flowers.
+          example: https://www.cannabisreports.com/images/flowers/c/full_c4b27703dedbccd4a9f4bb0ca89bf4520aa4aca0.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for these flowers.
+          example: https://www.cannabisreports.com/lab-tests/c/c702502526ef743651e29f14ccfa84423fadfdf0.pdf
+        thc:
+          type: string
+          description: THC measurement for these flowers.
+          example: 27.50%
+        cbd:
+          type: string
+          description: CBD measurement for these flowers.
+          example: 0.05%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Flower
+    SeedCompany:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the seed company.
+          example: Sensi Seeds
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the seed company.
+          example: VUJCJ00000000000000000000
+        description:
+          type: string
+          description: Description of the seed company.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg
+        url:
+          type: string
+          description: URL for seed company on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds
+        image:
+          type: string
+          description: URL for logo for seed company.
+          example: https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Canada: CA
+            Colombia: CO
+            Hungary: HU
+            India: IN
+        strains:
+          type: array
+          description: OCPCs of the strains from this seed company.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Seed Company
     Strain:
       required:
       - name
@@ -535,49 +518,64 @@ components:
           format: date-time
       xml:
         name: Strain
-    SeedCompany:
+    Extract:
       required:
       - name
       type: object
       properties:
         name:
           type: string
-          description: Name of the seed company.
-          example: Sensi Seeds
+          description: Name of the extract.
+          example: Confidential Cheese - Wax
         ocpc:
           type: string
-          description: Open Cannabis Product Code for the seed company.
-          example: VUJCJ00000000000000000000
+          description: Open Cannabis Product Code for the extract.
+          example: TTUYNUF3TP6DZTPWPG3200000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created these extract.
+          example:
+            name: Kaizen Medicinal
+            ocpc: 00000000006DZTP0000000000
+        type:
+          type: string
+          description: Type of extract.
+          example: wax
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these extract.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
         description:
           type: string
-          description: Description of the seed company.
+          description: Description of the extract.
         qr:
           type: string
           description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/qr-code.svg
+          example: https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
         url:
           type: string
-          description: URL for seed company on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds
+          description: URL for the extract on Cannabis Reports.
+          example: https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
         image:
           type: string
-          description: URL for logo for seed company.
-          example: https://www.cannabisreports.com/images/profile/1/full_15fda07a135540c1de6afbb38dafe2113a11a7a4.jpg
-        lineage:
-          type: object
-          properties: {}
-          description: Object of countries that this seed company has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
-          example:
-            Afghanistan: AF
-            Canada: CA
-            Colombia: CO
-            Hungary: HU
-            India: IN
-        strains:
-          type: array
-          description: OCPCs of the strains from this seed company.
-          items:
-            type: string
+          description: URL for the main photo of the extract.
+          example: https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for these extract.
+          example: https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
+        thc:
+          type: string
+          description: THC measurement for these extract.
+          example: 87.92%
+        cbd:
+          type: string
+          description: CBD measurement for these extract.
+          example: 0.22%
         createdAt:
           type: string
           description: Date and time record was created, UTC.
@@ -587,7 +585,7 @@ components:
           description: Date and time record was updated, UTC.
           format: date-time
       xml:
-        name: Seed Company
+        name: Extract
   securitySchemes:
     api_key:
       type: apiKey

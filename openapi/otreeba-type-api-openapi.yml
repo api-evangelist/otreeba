@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Otreeba Type API
-  description: '
-
-    Open Cannabis Data for Your Technology Otreeba comes from the word
+  description: 'Open Cannabis Data for Your Technology Otreeba comes from the word
 
     "abierto" which means "open." We offer standardized cannabis data and
 
@@ -28,7 +26,7 @@ paths:
     get:
       tags:
       - Type
-      summary: Find study by DOI, PubMed ID, or slug.
+      summary: Find study by DOI, PubMed ID, or slug
       description: Returns a single study.
       operationId: getStudyByIdentifier
       parameters:
@@ -67,6 +65,33 @@ paths:
           content: {}
 components:
   schemas:
+    Condition:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the condition.
+          example: Fibromyalgia
+        slug:
+          type: string
+          description: Slug based on the condition name.
+          example: fibromyalgia
+        description:
+          type: string
+          description: Description of the condition.
+          example: Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Condition
     Study:
       required:
       - name
@@ -110,33 +135,6 @@ components:
           format: date-time
       xml:
         name: Study
-    Condition:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the condition.
-          example: Fibromyalgia
-        slug:
-          type: string
-          description: Slug based on the condition name.
-          example: fibromyalgia
-        description:
-          type: string
-          description: Description of the condition.
-          example: Fibromyalgia, an illness characterized by chronic pain combined with some form of psychiatric diagnosis, still lacks an observable underlying pathology. The disease picture of fibromyalgia usually includes widespread chronic pains in muscles and connective tissue, joint stiffness, general weakness, exhaustion, depression, anxiety, and insomnia. Nearly 2 percent of the general population in the United States suffers from fibromyalgia, the majority of them being middle-aged females.
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Condition
   securitySchemes:
     api_key:
       type: apiKey

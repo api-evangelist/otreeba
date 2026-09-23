@@ -1,7 +1,7 @@
 {
   "provider": "otreeba",
   "sources": [
-    "otreeba-api-openapi.yml"
+    "_original/otreeba-api-openapi.yml"
   ],
   "outputs": [
     "otreeba-brands-api-openapi.yml",
@@ -20,17 +20,17 @@
     "otreeba-studies-api-openapi.yml",
     "otreeba-type-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/otreeba-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "otreeba-api-openapi.yml: tagged GET /edibles -> Edibles",
-    "otreeba-api-openapi.yml: tagged GET /extracts -> Extracts",
-    "otreeba-api-openapi.yml: tagged GET /flowers -> Flowers",
-    "otreeba-api-openapi.yml: tagged GET /strains -> Strains",
-    "otreeba-api-openapi.yml: tagged GET /studies -> Studies",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "otreeba-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "otreeba-api-openapi.yml: tagged paths GET /edibles -> Edibles",
+    "otreeba-api-openapi.yml: tagged paths GET /extracts -> Extracts",
+    "otreeba-api-openapi.yml: tagged paths GET /flowers -> Flowers",
+    "otreeba-api-openapi.yml: tagged paths GET /strains -> Strains",
+    "otreeba-api-openapi.yml: tagged paths GET /studies -> Studies",
     "otreeba-api-openapi.yml: declared missing tag: Condition",
     "otreeba-api-openapi.yml: declared missing tag: Conditions",
     "otreeba-api-openapi.yml: declared missing tag: Identifiers",
@@ -38,7 +38,24 @@
     "otreeba-api-openapi.yml: declared missing tag: Seed",
     "otreeba-api-openapi.yml: declared missing tag: Seed  Companies",
     "otreeba-api-openapi.yml: declared missing tag: Slug",
-    "otreeba-api-openapi.yml: declared missing tag: Type"
+    "otreeba-api-openapi.yml: declared missing tag: Type",
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "otreeba-brands-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-condition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-conditions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-edibles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-extracts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-flowers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-identifiers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-ocpc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-seed-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-seed-companies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-slug-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-strains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-studies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otreeba-type-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

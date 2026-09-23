@@ -1,9 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Otreeba Conditions API
-  description: '
-
-    Open Cannabis Data for Your Technology Otreeba comes from the word
+  description: 'Open Cannabis Data for Your Technology Otreeba comes from the word
 
     "abierto" which means "open." We offer standardized cannabis data and
 
@@ -28,7 +26,7 @@ paths:
     get:
       tags:
       - Conditions
-      summary: Get a list of all current conditions for studies.
+      summary: Get a list of all current conditions for studies
       description: Returns a list of all current conditions for studies.
       operationId: getStudiesConditions
       parameters:
@@ -66,7 +64,7 @@ paths:
     get:
       tags:
       - Conditions
-      summary: Get a list of all current studies for a given condition.
+      summary: Get a list of all current studies for a given condition
       description: Returns a paginated list of studies.
       operationId: getStudiesByCondition
       parameters:
@@ -124,13 +122,6 @@ paths:
           content: {}
 components:
   schemas:
-    Meta:
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-      xml:
-        name: Meta
     Pagination:
       type: object
       properties:
@@ -163,6 +154,13 @@ components:
             next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
       xml:
         name: Pagination
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
   securitySchemes:
     api_key:
       type: apiKey
