@@ -225,38 +225,6 @@ paths:
           content: {}
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-          description: Total number of results available.
-          example: 64
-        count:
-          type: integer
-          description: Number of results to return. Default 10. Max 50.
-          example: 10
-        per_page:
-          type: integer
-          description: Number of results per page.
-          example: 10
-        current_page:
-          type: integer
-          description: Page of results.
-          example: 1
-        total_pages:
-          type: integer
-          description: Total number of pages of results.
-          example: 1
-        links:
-          type: object
-          properties: {}
-          description: Links to the previous and/or next pages of results.
-          example:
-            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
-            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
-      xml:
-        name: Pagination
     Edible:
       required:
       - name
@@ -333,6 +301,102 @@ components:
           format: date-time
       xml:
         name: Edible
+    Strain:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the strain.
+          example: Jack Herer
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the strain.
+          example: VUJCJ4TYMG000000000000000
+        seedCompany:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the seed company that created the strain.
+          example:
+            name: Sensi Seeds
+            ocpc: VUJCJ00000000000000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
+        url:
+          type: string
+          description: URL for strain on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
+        image:
+          type: string
+          description: URL for the main photo of the strain.
+          example: https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Colombia: CO
+            India: IN
+            Mexico: MX
+            Thailand: TH
+        genetics:
+          type: object
+          properties: {}
+          description: Names of the parents of the strains and their associated Open Cannabis Product Codes.
+          example:
+            names: '(Northern Lights #5 x Skunk #1) x Haze'
+            ucpc: (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000
+        children:
+          type: array
+          description: Open Cannabis Product Codes of the children of this strain.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Strain
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of results available.
+          example: 64
+        count:
+          type: integer
+          description: Number of results to return. Default 10. Max 50.
+          example: 10
+        per_page:
+          type: integer
+          description: Number of results per page.
+          example: 10
+        current_page:
+          type: integer
+          description: Page of results.
+          example: 1
+        total_pages:
+          type: integer
+          description: Total number of pages of results.
+          example: 1
+        links:
+          type: object
+          properties: {}
+          description: Links to the previous and/or next pages of results.
+          example:
+            previous: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=1
+            next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
+      xml:
+        name: Pagination
     Flower:
       required:
       - name
@@ -454,70 +518,6 @@ components:
           format: date-time
       xml:
         name: Seed Company
-    Strain:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the strain.
-          example: Jack Herer
-        ocpc:
-          type: string
-          description: Open Cannabis Product Code for the strain.
-          example: VUJCJ4TYMG000000000000000
-        seedCompany:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the seed company that created the strain.
-          example:
-            name: Sensi Seeds
-            ocpc: VUJCJ00000000000000000000
-        qr:
-          type: string
-          description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
-        url:
-          type: string
-          description: URL for strain on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
-        image:
-          type: string
-          description: URL for the main photo of the strain.
-          example: https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
-        lineage:
-          type: object
-          properties: {}
-          description: Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
-          example:
-            Afghanistan: AF
-            Colombia: CO
-            India: IN
-            Mexico: MX
-            Thailand: TH
-        genetics:
-          type: object
-          properties: {}
-          description: Names of the parents of the strains and their associated Open Cannabis Product Codes.
-          example:
-            names: '(Northern Lights #5 x Skunk #1) x Haze'
-            ucpc: (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000
-        children:
-          type: array
-          description: Open Cannabis Product Codes of the children of this strain.
-          items:
-            type: string
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Strain
     Extract:
       required:
       - name
