@@ -225,6 +225,74 @@ paths:
           content: {}
 components:
   schemas:
+    Extract:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the extract.
+          example: Confidential Cheese - Wax
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the extract.
+          example: TTUYNUF3TP6DZTPWPG3200000
+        brand:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the brand that created these extract.
+          example:
+            name: Kaizen Medicinal
+            ocpc: 00000000006DZTP0000000000
+        type:
+          type: string
+          description: Type of extract.
+          example: wax
+        strain:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the strain for these extract.
+          example:
+            name: Confidential Cheese
+            ocpc: TTUYNUF3TP000000000000000
+        description:
+          type: string
+          description: Description of the extract.
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
+        url:
+          type: string
+          description: URL for the extract on Cannabis Reports.
+          example: https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
+        image:
+          type: string
+          description: URL for the main photo of the extract.
+          example: https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
+        labTest:
+          type: string
+          description: URL for the PDF containing lab testing information for these extract.
+          example: https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
+        thc:
+          type: string
+          description: THC measurement for these extract.
+          example: 87.92%
+        cbd:
+          type: string
+          description: CBD measurement for these extract.
+          example: 0.22%
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Extract
     Edible:
       required:
       - name
@@ -301,70 +369,6 @@ components:
           format: date-time
       xml:
         name: Edible
-    Strain:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the strain.
-          example: Jack Herer
-        ocpc:
-          type: string
-          description: Open Cannabis Product Code for the strain.
-          example: VUJCJ4TYMG000000000000000
-        seedCompany:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the seed company that created the strain.
-          example:
-            name: Sensi Seeds
-            ocpc: VUJCJ00000000000000000000
-        qr:
-          type: string
-          description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
-        url:
-          type: string
-          description: URL for strain on Cannabis Reports.
-          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
-        image:
-          type: string
-          description: URL for the main photo of the strain.
-          example: https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
-        lineage:
-          type: object
-          properties: {}
-          description: Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
-          example:
-            Afghanistan: AF
-            Colombia: CO
-            India: IN
-            Mexico: MX
-            Thailand: TH
-        genetics:
-          type: object
-          properties: {}
-          description: Names of the parents of the strains and their associated Open Cannabis Product Codes.
-          example:
-            names: '(Northern Lights #5 x Skunk #1) x Haze'
-            ucpc: (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000
-        children:
-          type: array
-          description: Open Cannabis Product Codes of the children of this strain.
-          items:
-            type: string
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Strain
     Pagination:
       type: object
       properties:
@@ -465,6 +469,70 @@ components:
           format: date-time
       xml:
         name: Flower
+    Strain:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the strain.
+          example: Jack Herer
+        ocpc:
+          type: string
+          description: Open Cannabis Product Code for the strain.
+          example: VUJCJ4TYMG000000000000000
+        seedCompany:
+          type: object
+          properties: {}
+          description: Name and Open Cannabis Product Code of the seed company that created the strain.
+          example:
+            name: Sensi Seeds
+            ocpc: VUJCJ00000000000000000000
+        qr:
+          type: string
+          description: URL for QR that leads to page on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer/qr-code.svg
+        url:
+          type: string
+          description: URL for strain on Cannabis Reports.
+          example: https://www.cannabisreports.com/strain-reports/sensi-seeds/jack-herer
+        image:
+          type: string
+          description: URL for the main photo of the strain.
+          example: https://www.cannabisreports.com/images/strains/a/full_ae82eef3bb2b7694df7f8bfa0da22a5d2b0f3689.jpg
+        lineage:
+          type: object
+          properties: {}
+          description: Object of countries that this strain has lineages from. {'Country Name' => 'ISO 3166-1 Two Letter Country Code'}
+          example:
+            Afghanistan: AF
+            Colombia: CO
+            India: IN
+            Mexico: MX
+            Thailand: TH
+        genetics:
+          type: object
+          properties: {}
+          description: Names of the parents of the strains and their associated Open Cannabis Product Codes.
+          example:
+            names: '(Northern Lights #5 x Skunk #1) x Haze'
+            ucpc: (VUJCJ4MPQ2000000000000000 x VUJCJY6ZUC000000000000000) x 9XVU7WJQCD000000000000000
+        children:
+          type: array
+          description: Open Cannabis Product Codes of the children of this strain.
+          items:
+            type: string
+        createdAt:
+          type: string
+          description: Date and time record was created, UTC.
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date and time record was updated, UTC.
+          format: date-time
+      xml:
+        name: Strain
     SeedCompany:
       required:
       - name
@@ -518,74 +586,6 @@ components:
           format: date-time
       xml:
         name: Seed Company
-    Extract:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the extract.
-          example: Confidential Cheese - Wax
-        ocpc:
-          type: string
-          description: Open Cannabis Product Code for the extract.
-          example: TTUYNUF3TP6DZTPWPG3200000
-        brand:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the brand that created these extract.
-          example:
-            name: Kaizen Medicinal
-            ocpc: 00000000006DZTP0000000000
-        type:
-          type: string
-          description: Type of extract.
-          example: wax
-        strain:
-          type: object
-          properties: {}
-          description: Name and Open Cannabis Product Code of the strain for these extract.
-          example:
-            name: Confidential Cheese
-            ocpc: TTUYNUF3TP000000000000000
-        description:
-          type: string
-          description: Description of the extract.
-        qr:
-          type: string
-          description: URL for QR that leads to page on Cannabis Reports.
-          example: https://www.cannabisreports.com/extract-reports/qr-code/kaizen-medicinal/dna-genetics/confidential-cheese/wax.png
-        url:
-          type: string
-          description: URL for the extract on Cannabis Reports.
-          example: https://www.cannabisreports.com/extract-reports/kaizen-medicinal/dna-genetics/confidential-cheese/wax
-        image:
-          type: string
-          description: URL for the main photo of the extract.
-          example: https://www.cannabisreports.com/images/extracts/2/full_2172a2e37b3711da4666899be1dddc1157d60190.jpg
-        labTest:
-          type: string
-          description: URL for the PDF containing lab testing information for these extract.
-          example: https://www.cannabisreports.com/lab-tests/c/cc7b037528c7661dafde2a1e36f3c6d3ffcccb40.pdf
-        thc:
-          type: string
-          description: THC measurement for these extract.
-          example: 87.92%
-        cbd:
-          type: string
-          description: CBD measurement for these extract.
-          example: 0.22%
-        createdAt:
-          type: string
-          description: Date and time record was created, UTC.
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date and time record was updated, UTC.
-          format: date-time
-      xml:
-        name: Extract
   securitySchemes:
     api_key:
       type: apiKey
