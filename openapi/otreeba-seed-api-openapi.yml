@@ -191,13 +191,6 @@ components:
             next: https://api.otreeba.com/v1/seed-companies/VUJCJ00000000000000000000/strains?page=3
       xml:
         name: Pagination
-    Meta:
-      type: object
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-      xml:
-        name: Meta
     SeedCompany:
       required:
       - name
@@ -251,6 +244,13 @@ components:
           format: date-time
       xml:
         name: Seed Company
+    Meta:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      xml:
+        name: Meta
   securitySchemes:
     api_key:
       type: apiKey
