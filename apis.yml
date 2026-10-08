@@ -228,6 +228,10 @@ apis:
   - type: Documentation
     url: https://api.otreeba.com/swagger/
 common:
+  - type: RateLimits
+    url: rate-limits/otreeba-rate-limits.yml
+  - type: FinOps
+    url: finops/otreeba-finops.yml
   - type: Website
     url: https://www.otreeba.com/
   - type: DomainSecurity
